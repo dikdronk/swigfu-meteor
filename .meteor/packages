@@ -21,3 +21,4 @@ twbs:bootstrap
 underscore
 iron:router
 ejson
+sacha:spin
