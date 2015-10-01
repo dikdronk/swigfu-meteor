@@ -1,10 +1,11 @@
+// geocomplete to watch venueName input and autocomplete
 Template.dealSubmit.onRendered(function() {
   this.autorun(function () {
     if (GoogleMaps.loaded()) {
       $('#venueName').geocomplete({
-        types: ['establishment'],
-        details: ".geo-name",
-        detailsAttribute: "data-geo"
+        types: ['establishment'], //only list business results
+        details: ".geo-name", //only insert the name
+        detailsAttribute: "data-geo" //look for data-geo class
       });
     }
   });

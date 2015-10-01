@@ -7,11 +7,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{pathFor 'dealsList'}}">swigFU</a>
+      <a class="navbar-brand" href="{{pathFor 'dealsList'}}">SwigFU</a>
     </div>
     <div class="collapse navbar-collapse" id="navigation">
       <ul class="nav navbar-nav">
+      {{#if currentUser}} <!-- Hide submit button if !loggedIn -->
         <li><a href="{{pathFor 'dealSubmit'}}">Submit a Deal</a></li>
+      {{/if}}
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {{> loginButtons}}
