@@ -1,3 +1,15 @@
+Template.dealSubmit.onRendered(function() {
+  this.autorun(function () {
+    if (GoogleMaps.loaded()) {
+      $('#venueName').geocomplete({
+        types: ['establishment'],
+        details: ".geo-name",
+        detailsAttribute: "data-geo"
+      });
+    }
+  });
+});
+
 Template.dealSubmit.events({
   'submit form': function(e) {
     e.preventDefault();
