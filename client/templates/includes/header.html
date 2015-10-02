@@ -10,6 +10,10 @@
       <a class="navbar-brand" href="{{pathFor 'dealsList'}}">SwigFU</a>
     </div>
     <div class="collapse navbar-collapse" id="navigation">
+      <!--Changelog so Albert knows what's up -->
+      <ul class="nav navbar-nav">
+        <li><a href="{{pathFor 'changeLog'}}">Change Log for Albert Dickface</a></li>
+      </ul>
       <ul class="nav navbar-nav">
       {{#if currentUser}} <!-- Hide submit button if !loggedIn -->
         <li><a href="{{pathFor 'dealSubmit'}}">Submit a Deal</a></li>
