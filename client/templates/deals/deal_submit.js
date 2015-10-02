@@ -21,7 +21,18 @@ Template.dealSubmit.events({
       when: $(e.target).find('[name=when]').val()
     };
 
-    deal._id = Deals.insert(deal);
-    Router.go('dealPage', deal);
+    Meteor.call('dealInsert', deal, function(error, result) {
+      //display error and abort
+      if (error)
+        return alert(error.reason);
+
+      //Duplicate code that goes with deals.js code
+      /*
+      if (result.dealExists)
+        alert('This deal has already been posted');
+      */
+
+      Router.go('dealPage', {_id: result._id});
+    });
   }
 });
