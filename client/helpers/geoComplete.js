@@ -1,3 +1,4 @@
+//Connect the Google Maps API
 Meteor.startup(function() {
   GoogleMaps.load({
     key: 'AIzaSyAglhUstuu9vs92UD10Ffz496F3Svt3jqQ',

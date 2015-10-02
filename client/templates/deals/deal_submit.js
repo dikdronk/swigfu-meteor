@@ -24,12 +24,12 @@ Template.dealSubmit.events({
     Meteor.call('dealInsert', deal, function(error, result) {
       //display error and abort
       if (error)
-        return alert(error.reason);
+        return throwError(error.reason);
 
       //Duplicate code that goes with deals.js code
       /*
       if (result.dealExists)
-        alert('This deal has already been posted');
+        throwError('This deal has already been posted');
       */
 
       Router.go('dealPage', {_id: result._id});
