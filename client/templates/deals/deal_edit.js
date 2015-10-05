@@ -11,6 +11,19 @@ Template.dealEdit.onRendered(function() {
   });
 });
 
+Template.dealEdit.onCreated(function() {
+  Session.set('dealEditErrors', {});
+});
+
+Template.dealEdit.helpers({
+  errorMessage: function(field) {
+    return Session.get('dealEditErrors')[field];
+  },
+  errorClass: function (field) {
+    return !!Session.get('dealEditErrors')[field] ? 'has-error' : '';
+  }
+});
+
 Template.dealEdit.events({
   'submit form': function(e) {
     e.preventDefault();
@@ -23,6 +36,10 @@ Template.dealEdit.events({
       venueName: $(e.target).find('[name=venueName]').val(),
       when: $(e.target).find('[name=when]').val()
     };
+
+    var errors = validateDeal(dealProperties);
+    if (errors.dealTitle || errors.venueName || errors.when)
+      return Session.set('dealEditErrors', errors);
 
     //Implement update
     Deals.update(currentDealId, {$set: dealProperties}, function(error) {

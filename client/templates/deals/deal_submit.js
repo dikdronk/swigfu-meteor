@@ -11,6 +11,19 @@ Template.dealSubmit.onRendered(function() {
   });
 });
 
+Template.dealSubmit.onCreated(function() {
+  Session.set('dealSubmitErrors', {});
+});
+
+Template.dealSubmit.helpers({
+  errorMessage: function(field) {
+    return Session.get('dealSubmitErrors')[field];
+  },
+  errorClass: function (field) {
+    return !!Session.get('dealSubmitErrors')[field] ? 'has-error' : '';
+  }
+});
+
 Template.dealSubmit.events({
   'submit form': function(e) {
     e.preventDefault();
@@ -20,6 +33,11 @@ Template.dealSubmit.events({
       venueName: $(e.target).find('[name=venueName]').val(),
       when: $(e.target).find('[name=when]').val()
     };
+
+    var errors = validateDeal(deal);
+    if (errors.dealTitle || errors.venueName || errors.when) {
+      return Session.set('dealSubmitErrors', errors);
+    }
 
     Meteor.call('dealInsert', deal, function(error, result) {
       //display error and abort

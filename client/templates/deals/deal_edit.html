@@ -1,24 +1,27 @@
 <template name="dealEdit">
   <form class="main form page">
     <!-- Deal title/description input -->
-    <div class="form-group">
+    <div class="form-group {{errorClass 'dealTitle'}}">
       <label class="control-label" for=""> </label>
       <div class="controls">
         <input name="dealTitle" id="dealTitle" type="text" value="{{dealTitle}}" placeholder="What's the deal?" class="form-control"/>
+        <span class="help-block">{{errorMessage 'dealTitle'}}</span>
       </div>
     </div>
     <!-- Where is the deal on input -->
-    <div class="form-group">
+    <div class="form-group {{errorClass 'venueName'}}">
       <label class="control-label" for=""> </label>
       <div class="controls geo-name">
         <input name="venueName" id="venueName" type="text" value="{{venueName}}" placeholder="Where is this deal offered?" class="form-control" data-geo="name"/>
+        <span class="help-block">{{errorMessage 'venueName'}}</span>
       </div>
     </div>
     <!-- When is the deal on input -->
-    <div class="form-group">
+    <div class="form-group {{errorClass 'when'}}">
       <label class="control-label" for=""> </label>
       <div class="controls">
         <input name="when" id="when" type="text" value="{{when}}" placeholder="When is this deal on?" class="form-control"/>
+        <span class="help-block">{{errorMessage 'when'}}</span>
       </div>
     </div>
     <!-- Submit button -->
