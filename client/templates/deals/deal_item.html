@@ -3,7 +3,8 @@
     <div class="post-content">
       <h3><span>{{when}} </span>{{dealTitle}}<span> {{venueName}}</span></h3>
       <p>
-        Deal submitted by <b>{{submittedBy}}</b>
+        Deal submitted by <b>{{submittedBy}}</b>,
+        <a href="{{pathFor 'dealPage'}}">{{commentsCount}} comments</a>
         {{#if ownDeal}}<a href="{{pathFor 'dealEdit'}}">Edit</a>{{/if}}
       </p>
     </div>

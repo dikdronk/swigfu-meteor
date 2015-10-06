@@ -1,5 +1,18 @@
 <template name="dealPage">
   <div class="post-page page">
     {{> dealItem}}
+
+    <!-- display comments -->
+    <ul class="comments">
+      {{#each comments}}
+        {{> commentItem}}
+      {{/each}}
+    </ul>
+      <!-- Show comment submit form if logged in -->
+    {{#if currentUser}}
+      {{> commentSubmit}}
+    {{else}}
+      <p>Please log in to leave comments!</p>
+    {{/if}}
   </div>
 </template>
