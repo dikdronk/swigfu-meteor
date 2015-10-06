@@ -22,7 +22,8 @@ if (Deals.find().count() === 0) {
     venueName: 'Bar 1',
     userId: robey._id,
     submittedBy: robey.profile.name,
-    submitted: new Date(now - 7 * 3600 * 1000)
+    submitted: new Date(now - 7 * 3600 * 1000),
+    commentsCount: 2
   });
 
   Comments.insert({
@@ -47,7 +48,8 @@ if (Deals.find().count() === 0) {
     venueName: 'Bar 2',
     userId: albert._id,
     submittedBy: albert.profile.name,
-    submitted: new Date(now - 10 * 3600 * 1000)
+    submitted: new Date(now - 10 * 3600 * 1000),
+    commentsCount: 0
   });
 
   Deals.insert({
@@ -56,6 +58,7 @@ if (Deals.find().count() === 0) {
     venueName: 'Bar 3',
     userId: albert._id,
     submittedBy: albert.profile.name,
-    submitted: new Date(now - 12 * 3600 * 1000)
+    submitted: new Date(now - 12 * 3600 * 1000),
+    commentsCount: 0
   });
 }
