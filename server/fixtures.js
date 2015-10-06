@@ -61,4 +61,17 @@ if (Deals.find().count() === 0) {
     submitted: new Date(now - 12 * 3600 * 1000),
     commentsCount: 0
   });
+
+  //Quickly add 15 Demo Deals
+  for (var i = 0; i < 15; i++) {
+    Deals.insert({
+      dealTitle: 'Demo Deal #' + i,
+      when: 'All-day',
+      venueName: 'Demo Bar #' + i,
+      userId: albert._id,
+      submittedBy: albert.profile.name,
+      submitted: new Date(now - i * 3600 * 1000),
+      commentsCount: 0
+    });
+  }
 }

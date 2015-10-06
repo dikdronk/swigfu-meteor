@@ -1,5 +1,14 @@
-Meteor.publish('deals', function() {
-  return Deals.find();
+Meteor.publish('deals', function(options) {
+  check(options, {
+    sort: Object,
+    limit: Number
+  });
+  return Deals.find({}, options);
+});
+
+Meteor.publish('singleDeal', function(id) {
+  check(id, String)
+  return Deals.find(id);
 });
 
 Meteor.publish('comments', function(dealId) {
@@ -8,5 +17,5 @@ Meteor.publish('comments', function(dealId) {
 });
 
 Meteor.publish('notifications', function() {
-  return Notifications.find();
+  return Notifications.find({userId: this.userId, read: false});
 });
