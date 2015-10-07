@@ -23,7 +23,9 @@ if (Deals.find().count() === 0) {
     userId: robey._id,
     submittedBy: robey.profile.name,
     submitted: new Date(now - 7 * 3600 * 1000),
-    commentsCount: 2
+    commentsCount: 2,
+    upvoters: [],
+    votes: 0
   });
 
   Comments.insert({
@@ -49,7 +51,9 @@ if (Deals.find().count() === 0) {
     userId: albert._id,
     submittedBy: albert.profile.name,
     submitted: new Date(now - 10 * 3600 * 1000),
-    commentsCount: 0
+    commentsCount: 0,
+    upvoters: [],
+    votes: 0
   });
 
   Deals.insert({
@@ -59,7 +63,9 @@ if (Deals.find().count() === 0) {
     userId: albert._id,
     submittedBy: albert.profile.name,
     submitted: new Date(now - 12 * 3600 * 1000),
-    commentsCount: 0
+    commentsCount: 0,
+    upvoters: [],
+    votes: 0
   });
 
   //Quickly add 15 Demo Deals
@@ -71,7 +77,9 @@ if (Deals.find().count() === 0) {
       userId: albert._id,
       submittedBy: albert.profile.name,
       submitted: new Date(now - i * 3600 * 1000),
-      commentsCount: 0
+      commentsCount: 0,
+      upvoters: [],
+      votes: 0
     });
   }
 }
