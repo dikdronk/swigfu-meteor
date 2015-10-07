@@ -12,9 +12,15 @@
     <div class="collapse navbar-collapse" id="navigation">
       <!--Changelog so Albert knows what's up -->
       <ul class="nav navbar-nav">
-        <li><a href="{{pathFor 'changeLog'}}">Change Log for Albert Dickface</a></li>
+        <li><a href="{{pathFor 'changeLog'}}">Change Log for Albert Dickbreath</a></li>
       </ul>
       <ul class="nav navbar-nav">
+        <li>
+          <a href="{{pathFor 'newDeals'}}">New</a>
+        </li>
+        <li>
+          <a href="{{pathFor 'bestDeals'}}">Best</a>
+        </li>
       {{#if currentUser}} <!-- Hide submit button if !loggedIn -->
         <li><a href="{{pathFor 'dealSubmit'}}">Submit a Deal</a>
         </li>
